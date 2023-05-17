@@ -14,14 +14,14 @@ public class Main {
         int sum = arr[0];
         int answer = sum;
         for (int i = 1; i < length; i++) {
-            if (arr[i] <= sum+arr[i]) {
-                sum += arr[i];
-            } else {
+            if (sum < 0) {
                 sum = arr[i];
+            }else{
+                sum += arr[i];
             }
             answer = Math.max(answer, sum);
         }
-//        System.out.println("result = "+Arrays.toString(result));
         System.out.println(answer);
     }
+//        System.out.println("result = "+Arrays.toString(result));
 }
