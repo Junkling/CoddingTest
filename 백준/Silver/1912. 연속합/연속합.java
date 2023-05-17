@@ -11,9 +11,9 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        int sum = arr[0];
-        int answer = sum;
-        for (int i = 1; i < length; i++) {
+        int sum = 0;
+        int answer = Integer.MIN_VALUE;
+        for (int i = 0; i < length; i++) {
             if (sum < 0) {
                 sum = arr[i];
             }else{
@@ -23,5 +23,4 @@ public class Main {
         }
         System.out.println(answer);
     }
-//        System.out.println("result = "+Arrays.toString(result));
 }
