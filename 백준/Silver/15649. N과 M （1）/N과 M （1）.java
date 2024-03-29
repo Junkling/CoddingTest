@@ -15,9 +15,7 @@ public class Main {
             arr[i] = i + 1;
         }
         for (int i = 0; i < N; i++) {
-            Queue<Integer> q = new LinkedList<>();
             boolean[] visit= new boolean[N];
-            q.offer(arr[i]);
             visit[i] = true;
             String s = Integer.toString(arr[i]);
             bfs(s, visit, 1);
