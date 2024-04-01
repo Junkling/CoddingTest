@@ -1,20 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
+    static int[] arr;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int sum = sc.nextInt();
-        int[] coins = new int[n];
+        int k = sc.nextInt();
+        arr = new int[n];
+        int index = 0;
         for (int i = 0; i < n; i++) {
-            coins[i] = sc.nextInt();
+            arr[i] = sc.nextInt();
+            if (arr[i] > k) continue;
+            index = i;
         }
         int answer = 0;
-        for (int i = n - 1; i >= 0; i--) {
-            if (coins[i] > sum) continue;
-                int x = sum / coins[i];
-                answer+=x;
-                sum -= x * coins[i];
+        while (k>0&& index>=0) {
+            answer += k / arr[index];
+            k %= arr[index];
+            index--;
         }
         System.out.println(answer);
     }
