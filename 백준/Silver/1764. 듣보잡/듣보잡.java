@@ -9,29 +9,31 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st;
         st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        HashMap<String, Integer> hm = new HashMap<>();
-        for (int i = 0; i < N; i++) {
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+
+        HashSet<String> neverHear = new HashSet<>();
+        List<String> neverHearSeen = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            String s = st.nextToken();
-            hm.put(s, 1);
+            String str = st.nextToken();
+            neverHear.add(str);
         }
-        int count = 0;
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < M; i++) {
+        for(int i=0; i<m; i++){
             st = new StringTokenizer(br.readLine());
-            String s = st.nextToken();
-            if(!hm.containsKey(s)) continue;
-            list.add(s);
-            count++;
+            String str = st.nextToken();
+            if (neverHear.contains(str)) {
+                neverHearSeen.add(str);
+            }
         }
-        Collections.sort(list);
-        sb.append(count).append('\n');
-        for (int i = 0; i < list.size(); i++) {
-            sb.append(list.get(i));
-            if(i==list.size()-1)continue;
-            sb.append('\n');
+        Collections.sort(neverHearSeen);
+
+        sb.append(neverHearSeen.size());
+
+        for (String s : neverHearSeen) {
+            sb.append("\n");
+            sb.append(s);
         }
         System.out.println(sb);
     }
